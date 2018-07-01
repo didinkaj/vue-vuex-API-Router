@@ -7,15 +7,17 @@
             <div slot="details">
                 Contains all blogs written on daily basis by cytonn software developer interns; the blogs are mainly two..
                 <div class="panel clearfix">
-                    <a href="#/about" class="primary button">Read More</a>
-                    <a href ="#" class="success button addblog">Add Blog</a>
+                    <button @click="addBlog()" class="primary button">Add Blog Post</button>
                 </div>
             </div>
         </page-header>
 
-        <content-area>
-            <div slot="content">
+        <content-area >
+            <div slot="content" v-if="isActiveBlogs" >
                 <blogs-list :blogs="blogs"></blogs-list>
+            </div>
+            <div slot="content" v-if="isActiveForm">
+                <add-blog></add-blog>
             </div>
             <div slot="sidebar">
                 <li>Home</li>
@@ -34,6 +36,7 @@
   import BlogPagination from '@/components/BlogPagination'
   import PageHeader from '@/components/PageHeader'
   import ContentArea from '@/components/ContentArea'
+  import AddBlogForm from '@/components/AddBlogForm'
 
   export default {
     name:'Home',
@@ -42,11 +45,14 @@
       'side-bar-nav': SideBarNav,
       'blog-pagination': BlogPagination,
       'page-header': PageHeader,
-      'content-area': ContentArea
+      'content-area': ContentArea,
+      'add-blog':AddBlogForm
     },
     data () {
 
       return {
+        isActiveBlogs:true,
+        isActiveForm:false,
         blogs:[{
           title:'Server Administration ',
           body:'Linux Administration entails the upkeep, configuration, and reliable operation of a Linux system to ensure uptime, efficient performance, proper utilization of resources, and security of the system. The report',
@@ -64,13 +70,37 @@
         ],
       }
 
+    },
+  created(){
+    this.$root.$on('closeForm', () => {
+      this.isActiveForm = false;
+      this.isActiveBlogs = true;
+    }),
+      this.$root.$on('saveBlog', (newBlog) => {
+        console.log(newBlog);
+        this.blogs.unshift(newBlog);
+        this.isActiveForm = false;
+        this.isActiveBlogs = true;
+      }),
+      this.$root.$on('deleteBlog', (blog) => {
+        console.log(blog);
+        this.blogs.pop(blog);
+      })
+
+
+
+  },
+    methods:{
+      addBlog(){
+        this.isActiveForm = true;
+        this.isActiveBlogs = false
+
+      }
     }
   }
 
 </script>
 
 <style>
-    .margintop {
-        margin-top: 10px;
-    }
+
 </style>

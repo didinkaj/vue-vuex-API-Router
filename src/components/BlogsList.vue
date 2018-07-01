@@ -3,7 +3,7 @@
 
         <div class="card" v-for="blog in blogs">
             <div class="card-section">
-                <h3>{{blog.title}} </h3>
+                <h3>{{blog.title}} <span class="left"><button @click="deleteBlog(blog)">X</button> </span> </h3>
                 <p>{{blog.body}}</p>
                 <a v-bind:href="blog.url" type="button" class="primary button">Read More</a>
                 <div class="callout">
@@ -27,13 +27,22 @@
     data(){
       return{
 
-
-
+      }
+    },
+    methods:{
+      deleteBlog(blog){
+        this.$root.$emit('deleteBlog',blog);
       }
     }
   }
 </script>
 
 <style>
-
+button{
+    color:red;
+    cursor: pointer;
+}
+    .left{
+        float: right;
+    }
 </style>

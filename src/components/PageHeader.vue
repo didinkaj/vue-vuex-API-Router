@@ -11,7 +11,7 @@
     data(){
       return{
         title:'Cytonn Technology  Blog',
-        details:'.'
+        details:''
 
       }
     }

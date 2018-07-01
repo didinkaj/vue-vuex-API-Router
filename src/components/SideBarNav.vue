@@ -23,6 +23,16 @@
         ],
       }
 
+    },
+    created(){
+      this.$root.$on('saveBlog', (newBlog) => {
+        console.log(newBlog);
+        this.blogs.unshift(newBlog);
+      }),
+        this.$root.$on('deleteBlog', (blog) => {
+          console.log(blog);
+          this.blogs.pop(blog);
+        })
     }
   }
 
