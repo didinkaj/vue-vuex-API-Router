@@ -30,7 +30,12 @@
 
 
         </div>
+        <router-link :to="{name:'About.contacts'}">Our Mission</router-link>
+
+        <router-view></router-view>
     </content-area>
+
+
     </div>
 
 </template>

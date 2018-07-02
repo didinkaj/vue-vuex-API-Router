@@ -90,6 +90,11 @@
       this.$root.$on('deleteBlog', (blog) => {
         console.log(blog);
         this.blogs.pop(blog);
+      }),
+      this.$root.$on('search',(value) =>{
+        console.log(value);
+        this.filteredBlog(value)
+
       })
 
 
@@ -100,12 +105,16 @@
         this.isActiveForm = true;
         this.isActiveBlogs = false
 
+      },filteredBlog(valsearch) {
+        let filter = new RegExp(this.blogs, 'i')
+        return this.blogs.filter(el => el.match(filter))
+        console.log( this.blogs.filter(el => el.match(filter)))
       }
     },
     computed:{
       Reversalmsg(){
       return this.msgReversal.split('').reverse().join('')
-    },
+    }
 
     }
   }

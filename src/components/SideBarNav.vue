@@ -6,6 +6,7 @@
     data(){
       return {
         title1:'Recently Added',
+        searchvalue:'',
         blogs:[{
           title:'Server Administration ',
           body:'Linux Administration entails the upkeep, configuration, and reliable operation of a Linux system to ensure uptime, efficient performance, proper utilization of resources, and security of the system. The report',
@@ -24,6 +25,12 @@
       }
 
     },
+    methods:{
+      searchBlog(searchvalue){
+        this.$root.$emit('search',searchvalue);
+        console.log(this.$root.$emit('search',searchvalue));
+      }
+    },
     created(){
       this.$root.$on('saveBlog', (newBlog) => {
         console.log(newBlog);
@@ -39,6 +46,16 @@
 </script>
 <template>
     <div>
+        <div class="card">
+            <div class="card-section">
+                <table>
+                    <tr>
+                    <td><input v-model="searchvalue" type="search" placeholder="Search"></td>
+                    <td><button  type="button" class="button" @click="searchBlog(searchvalue)">Search</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
         <div class="card">
 
@@ -57,5 +74,7 @@
 
 
 <style>
-
+.ul li{
+    float:left;
+}
 </style>

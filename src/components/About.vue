@@ -3,7 +3,7 @@
   import ContentArea from '@/components/ContentArea'
 
   export default {
-    name: 'about',
+    name: 'about-mission',
     components: {
       'page-header': PageHeader,
       'content-area': ContentArea
@@ -24,14 +24,18 @@
         </page-header>
         <content-area>
             <div slot="content">
-                <h2>thanks for checking on us</h2>
+                <router-link :to="{name:'mission'}">Mission</router-link>
+                <router-link :to="{name:'vision'}">Vision</router-link>
+                <router-view></router-view>
+                
             </div>
             <div slot="sidebar">
-                <li>About</li>
-                <li>Page</li>
+
 
             </div>
         </content-area>
+
+
     </div>
 
 

@@ -1,6 +1,7 @@
 <template>
     <div>
-        <p>You have typed : <span class="wordcount">{{wordcount}}</span> Words</p>
+       <p class="green">{{fullArticle}}</p>
+        <p v-bind:class="{active:isActive}">You have typed : <span class="wordcount">{{wordcount}}</span> Words</p>
         <small class="error">The title of the Article</small>
         <input v-model="title" type="text" placeholder="Title" required>
 
@@ -27,7 +28,9 @@
         body: '',
         date: new Date(),
         url: '#/about',
-        blogDetails: []
+        isActive: false,
+        blogDetails: [],
+        fullArticle:''
 
       }
     },
@@ -35,7 +38,7 @@
       save () {
         const date = new Date()
         const url = '#/about'
-        if(this.title!='undefined' || this.bod!='undefined'|| this.author !='undefined'){
+        if(this.title!='undefined' || this.body!='undefined'|| this.author !='undefined'){
           let newBlog = {title: this.title, body: this.body, date: this.date, author: this.author, url: this.url}
           this.$root.$emit('saveBlog', newBlog)
         }
@@ -47,6 +50,13 @@
         console.log(this.$emit('closeForm'))
       }
 
+    },watch: {
+      author: function (val) {
+        this.fullArticle = val + ' Written By ' + this.author
+      },
+      title: function (val) {
+        this.fullArticle =  this.title + '' + val
+      }
     },
     computed:{
       wordcount(){
@@ -58,6 +68,12 @@
 <style>
     .wordcount{
         color:red;
+    }
+    .active{
+        display: none;
+    }
+    .green{
+        color:green;
     }
 
 </style>
