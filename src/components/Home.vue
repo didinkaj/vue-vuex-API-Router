@@ -20,11 +20,15 @@
                 <add-blog></add-blog>
             </div>
             <div slot="sidebar">
-                <li>Home</li>
+                <hr/>
+                <h5>Computed Properties</h5>
+                <p >{{Reversalmsg}}</p>
+                <input type="text" v-model="msgReversal"/>
 
             </div>
-            <blog-pagination></blog-pagination>
+
         </content-area>
+        <blog-pagination></blog-pagination>
     </div>
 
 
@@ -53,6 +57,7 @@
       return {
         isActiveBlogs:true,
         isActiveForm:false,
+        msgReversal:'',
         blogs:[{
           title:'Server Administration ',
           body:'Linux Administration entails the upkeep, configuration, and reliable operation of a Linux system to ensure uptime, efficient performance, proper utilization of resources, and security of the system. The report',
@@ -96,6 +101,11 @@
         this.isActiveBlogs = false
 
       }
+    },
+    computed:{
+      Reversalmsg(){
+      return this.msgReversal.split('').reverse().join('')
+    }
     }
   }
 
