@@ -32,5 +32,8 @@
     </div>
 </template>
 <style>
+    #content {
+        min-height:500px;
+    }
 
 </style>

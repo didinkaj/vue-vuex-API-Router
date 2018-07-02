@@ -22,7 +22,7 @@
             <div slot="sidebar">
                 <hr/>
                 <h5>Computed Properties</h5>
-                <p >{{Reversalmsg}}</p>
+                <p class="red" >{{Reversalmsg}}</p>
                 <input type="text" v-model="msgReversal"/>
 
             </div>
@@ -122,5 +122,8 @@
 </script>
 
 <style>
+    .red{
+        color:brown;
+    }
 
 </style>

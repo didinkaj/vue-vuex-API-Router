@@ -50,12 +50,15 @@
         console.log(this.$emit('closeForm'))
       }
 
-    },watch: {
-      author: function (val) {
-        this.fullArticle = val + ' Written By ' + this.author
+    },
+    watch: {
+      author: {
+        handler: function () {
+          this.fullArticle = this.title + ' Written By ' + this.author;
+        }
       },
-      title: function (val) {
-        this.fullArticle =  this.title + '' + val
+      title: function () {
+        this.fullArticle =  this.title + ' Written By ' + this.author;
       }
     },
     computed:{

@@ -18,10 +18,10 @@
 
 <template>
     <div id="main">
-        <keep-alive>
+
         <top-bar></top-bar>
         <footer-section></footer-section>
-        </keep-alive>
+
     </div>
 
 </template>

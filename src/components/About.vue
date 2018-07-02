@@ -27,7 +27,7 @@
                 <router-link :to="{name:'mission'}">Mission</router-link>
                 <router-link :to="{name:'vision'}">Vision</router-link>
                 <router-view></router-view>
-                
+
             </div>
             <div slot="sidebar">
 
