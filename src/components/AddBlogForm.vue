@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <p>You have typed : <span class="wordcount">{{wordcount}}</span> Words</p>
         <small class="error">The title of the Article</small>
         <input v-model="title" type="text" placeholder="Title" required>
 
@@ -47,9 +47,17 @@
         console.log(this.$emit('closeForm'))
       }
 
+    },
+    computed:{
+      wordcount(){
+        return this.body.length
+      }
     }
   }
 </script>
 <style>
+    .wordcount{
+        color:red;
+    }
 
 </style>

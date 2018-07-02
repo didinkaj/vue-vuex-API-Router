@@ -105,7 +105,8 @@
     computed:{
       Reversalmsg(){
       return this.msgReversal.split('').reverse().join('')
-    }
+    },
+
     }
   }
 
