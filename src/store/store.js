@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios';
 
 Vue.use(Vuex)
 const store = new Vuex.Store({
@@ -22,6 +23,8 @@ const store = new Vuex.Store({
                 url: '#/about'
             }
         ],
+        jokes: [],
+        loading: false
     },
     mutations: {
         updateName(state, name) {
@@ -32,10 +35,23 @@ const store = new Vuex.Store({
         },
         DELETE_BLOG(state, data){
             state.blogs.pop(data)
+        },
+        GET_JOKES(state, data) {
+
+            state.loading = true;
+
+            axios.get('http://api.icndb.com/jokes/random/10')
+                .then( ({ data }) => {
+                    state.jokes = data.value;
+
+                }, () => {
+
+                })
         }
     },
     getters: {
         blogs: state => state.blogs,
+        jokes: state => state.jokes,
     },
     actions: {},
     modules: {}

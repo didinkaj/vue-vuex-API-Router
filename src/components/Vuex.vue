@@ -30,8 +30,11 @@
             ...mapMutations(['updateName'])
             ,
             updated() {
-                return this.$store.commit('updateName', this.username)
+
+               const save  = this.$store.commit('updateName', this.username)
                 this.username = " "
+                return save
+
             }
         }
     }

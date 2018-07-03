@@ -25,7 +25,7 @@
             <div class="top-bar-left small-4 medium-6 large-3">
                 <ul class="menu">
                     <li class="is-active">
-                        <router-link :to="{name:'Home'}">home</router-link>
+                        <router-link :to="{name:'Home'}">Vuex</router-link>
                     </li>
                     <li>
                         <router-link :to="{name:'About'}">About</router-link>
@@ -36,9 +36,7 @@
                     <li>
                         <router-link :to="{name:'ApiRequest'}">API</router-link>
                     </li>
-                    <li>
-                        <router-link :to="{name:'Vuex'}">Vuex</router-link>
-                    </li>
+
                     <li>
                         <slot name="link"></slot>
                     </li>

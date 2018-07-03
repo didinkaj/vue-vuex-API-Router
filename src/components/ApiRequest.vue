@@ -1,6 +1,7 @@
 <script>
     import PageHeader from '@/components/PageHeader'
     import ContentArea from '@/components/ContentArea'
+    import { mapGetters } from 'vuex'
 
     export default {
         name: 'ApiRequest',
@@ -10,22 +11,22 @@
         },
         data() {
             return {
-                jokes: [],
+
 
             }
         },
+        computed:{
+            ...mapGetters({
+                jokes: 'jokes',
+                loading: 'loading'
+            })
+        },
         methods: {
             getJokes() {
-                this.loading = true;
-                this.axios.get("http://api.icndb.com/jokes/random/10")
-                    .then((response) => {
-                        this.loading = false;
-                        this.jokes = response.data.value;
-                    }, (error) => {
-                        this.loading = false;
-                    })
+                this.$store.commit('GET_JOKES');
             }
         },
+
         watch: {},
         beforeMount() {
             this.getJokes();
