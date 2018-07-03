@@ -1,40 +1,3 @@
-<template>
-    <div>
-        <page-header>
-            <div slot="title">
-                Cytonn Technology  Blog Vuex
-            </div>
-            <div slot="details">
-                Contains all blogs written on daily basis by cytonn software developer interns; the blogs are mainly two..
-                <div class="panel clearfix">
-                    <button @click="addBlog()" class="primary button">Add Blog Post</button>
-                </div>
-            </div>
-        </page-header>
-
-        <content-area>
-            <div slot="content" v-if="isActiveBlogs">
-                <blogs-list :blogs="blogs"></blogs-list>
-            </div>
-
-            <div slot="content" v-if="isActiveForm">
-                <add-blog></add-blog>
-            </div>
-
-            <div slot="sidebar">
-                <hr/>
-                <h5>Computed Properties</h5>
-                <p class="red">{{Reversalmsg}}</p>
-                <input type="text" v-model="msgReversal"/>
-            </div>
-        </content-area>
-
-        <blog-pagination></blog-pagination>
-    </div>
-
-
-</template>
-
 <script>
     import BlogsList from '@/components/BlogsList'
     import SideBarNav from '@/components/SideBarNav'
@@ -42,7 +5,7 @@
     import PageHeader from '@/components/PageHeader'
     import ContentArea from '@/components/ContentArea'
     import AddBlogForm from '@/components/AddBlogForm'
-    import {mapState, mapMutations} from 'vuex'
+    import {mapState} from 'vuex'
 
     export default {
         name: 'Home',
@@ -109,6 +72,45 @@
     }
 
 </script>
+
+<template>
+    <div>
+        <page-header>
+            <div slot="title">
+                Cytonn Technology  Blog Vuex
+            </div>
+            <div slot="details">
+                Contains all blogs written on daily basis by cytonn software developer interns; the blogs are mainly two..
+                <div class="panel clearfix">
+                    <button @click="addBlog()" class="primary button">Add Blog Post</button>
+                </div>
+            </div>
+        </page-header>
+
+        <content-area>
+            <div slot="content" v-if="isActiveBlogs">
+                <blogs-list :blogs="blogs"></blogs-list>
+            </div>
+
+            <div slot="content" v-if="isActiveForm">
+                <add-blog></add-blog>
+            </div>
+
+            <div slot="sidebar">
+                <hr/>
+                <h5>Computed Properties</h5>
+                <p class="red">{{Reversalmsg}}</p>
+                <input type="text" v-model="msgReversal"/>
+            </div>
+        </content-area>
+
+        <blog-pagination></blog-pagination>
+    </div>
+
+
+</template>
+
+
 
 <style>
     .red {
