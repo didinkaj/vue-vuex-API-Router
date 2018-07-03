@@ -1,3 +1,19 @@
+<script>
+    import {mapState, mapMutations} from 'vuex'
+    export default {
+        props: [
+            'blogs'
+        ],
+        data() {
+            return {}
+        },
+        methods: {
+            deleteBlog(blog) {
+               this.$store.commit('DELETE_BLOG', blog)
+            }
+        }
+    }
+</script>
 <template>
     <div class="medium-9 cell">
 
@@ -19,21 +35,7 @@
 
 </template>
 
-<script>
-    export default {
-        props: [
-            'blogs'
-        ],
-        data() {
-            return {}
-        },
-        methods: {
-            deleteBlog(blog) {
-                this.$root.$emit('deleteBlog', blog);
-            }
-        }
-    }
-</script>
+
 
 <style>
     button {

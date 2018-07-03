@@ -26,6 +26,12 @@ const store = new Vuex.Store({
     mutations: {
         updateName(state, name) {
             state.name = name
+        },
+        ADD_BLOG(state, data){
+             state.blogs.unshift(data)
+        },
+        DELETE_BLOG(state, data){
+            state.blogs.pop(data)
         }
     },
     getters: {

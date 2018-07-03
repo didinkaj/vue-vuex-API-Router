@@ -32,12 +32,6 @@
                 this.isActiveForm = false
                 this.isActiveBlogs = true
             }),
-                this.$root.$on('saveBlog', (newBlog) => {
-                    console.log(newBlog)
-                    this.blogs.unshift(newBlog)
-                    this.isActiveForm = false
-                    this.isActiveBlogs = true
-                }),
                 this.$root.$on('deleteBlog', (blog) => {
                     console.log(blog)
                     this.blogs.pop(blog)
@@ -50,14 +44,10 @@
 
         },
         methods: {
-            addBlog() {
+            showAddBlogForm() {
                 this.isActiveForm = true
                 this.isActiveBlogs = false
 
-            }, filteredBlog(valsearch) {
-                let filter = new RegExp(this.blogs, 'i')
-                return this.blogs.filter(el => el.match(filter))
-                console.log(this.blogs.filter(el => el.match(filter)))
             }
         },
         computed: {
@@ -82,7 +72,7 @@
             <div slot="details">
                 Contains all blogs written on daily basis by cytonn software developer interns; the blogs are mainly two..
                 <div class="panel clearfix">
-                    <button @click="addBlog()" class="primary button">Add Blog Post</button>
+                    <button @click="showAddBlogForm()" class="primary button">Add Blog Post</button>
                 </div>
             </div>
         </page-header>
