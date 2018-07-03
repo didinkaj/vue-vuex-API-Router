@@ -32,10 +32,7 @@
                 this.isActiveForm = false
                 this.isActiveBlogs = true
             }),
-                this.$root.$on('deleteBlog', (blog) => {
-                    console.log(blog)
-                    this.blogs.pop(blog)
-                }),
+
                 this.$root.$on('search', (value) => {
                     console.log(value)
                     this.filteredBlog(value)

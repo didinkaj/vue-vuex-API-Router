@@ -1,6 +1,6 @@
-
 <script>
     import {mapState, mapMutations} from 'vuex'
+
     export default {
         data() {
             return {
@@ -15,6 +15,14 @@
 
             }
         },
+        computed: {
+            wordcount() {
+                return this.body.length
+            },
+            ...mapState({
+                blogs: 'blogs'
+            })
+        },
         methods: {
 
             save() {
@@ -22,6 +30,7 @@
                 const url = '#/about'
                 if (this.title != 'undefined' || this.body != 'undefined' || this.author != 'undefined') {
                     let newBlog = {
+                        id: this.blogs.length + 1,
                         title: this.title,
                         body: this.body,
                         date: this.date,
@@ -30,6 +39,7 @@
                     }
                     this.$root.$emit('closeForm')
                     this.title = this.body = this.date = this.author = ""
+                    console.log(newBlog)
                     return this.$store.commit('ADD_BLOG', newBlog)
 
 
@@ -51,11 +61,6 @@
             },
             title: function () {
                 this.fullArticle = this.title + ' Written By ' + this.author;
-            }
-        },
-        computed: {
-            wordcount() {
-                return this.body.length
             }
         }
     }

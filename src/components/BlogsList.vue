@@ -5,7 +5,12 @@
             'blogs'
         ],
         data() {
-            return {}
+            return {
+
+            }
+        },
+        computed:{
+
         },
         methods: {
             deleteBlog(blog) {
@@ -21,7 +26,14 @@
             <div class="card-section">
                 <h3>{{blog.title}} <span class="left"><button @click="deleteBlog(blog)">X</button> </span></h3>
                 <p>{{blog.body}}</p>
-                <a v-bind:href="blog.url" type="button" class="primary button">Read More</a>
+                <ul class="menu ">
+                    <li class="is-active">
+                        <router-link :to="{ name: 'blogDetails', params: {id:blog.id}}">
+                            View Blog
+                        </router-link>
+                    </li>
+                </ul>
+
                 <div class="callout">
                     <ul class="menu simple">
                         <li>{{blog.date}}</li>
@@ -45,5 +57,8 @@
 
     .left {
         float: right;
+    }
+    .link{
+        color:#ffffff;
     }
 </style>
