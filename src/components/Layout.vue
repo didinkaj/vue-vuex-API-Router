@@ -1,18 +1,19 @@
 <script>
-  import TopBarNav from '@/components/TopBarNav'
-  import Footer from '@/components/FooterSection'
-  export default {
-    name: 'Main',
-    components:{
-      'top-bar': TopBarNav,
-      'footer-section': Footer
-    },
-    data () {
-      return {
-        msg: 'Blog Layout'
-      }
+    import TopBarNav from '@/components/TopBarNav'
+    import Footer from '@/components/FooterSection'
+
+    export default {
+        name: 'Main',
+        components: {
+            'top-bar': TopBarNav,
+            'footer-section': Footer
+        },
+        data() {
+            return {
+                msg: 'Blog Layout'
+            }
+        }
     }
-  }
 </script>
 
 
@@ -25,7 +26,6 @@
     </div>
 
 </template>
-
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

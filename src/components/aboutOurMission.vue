@@ -6,13 +6,11 @@
 
 </template>
 <script>
-    export  default{
-      name:'mission',
-      data(){
-        return{
-
+    export default {
+        name: 'mission',
+        data() {
+            return {}
         }
-      }
     }
 
 </script>

@@ -6,22 +6,18 @@
 
 <script>
 
-  import Layout from '@/components/Layout'
+    import Layout from '@/components/Layout'
 
-  export default {
-    name: 'App',
-    components:{
-      'page-layout':Layout
-    },
-    data(){
-      return{
-
-      }
-    },
-    methods:{
-
+    export default {
+        name: 'App',
+        components: {
+            'page-layout': Layout
+        },
+        data() {
+            return {}
+        },
+        methods: {}
     }
-  }
 </script>
 
 <style>

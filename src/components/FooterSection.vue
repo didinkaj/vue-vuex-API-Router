@@ -6,20 +6,20 @@
 
 
 <script>
-  export default {
-    data () {
-      return {}
+    export default {
+        data() {
+            return {}
+        }
     }
-  }
 </script>
 
 
 <style>
-    .footer{
+    .footer {
         background: #006b5b;
         background: linear-gradient(90deg, #006b5b, #a2d157);
-        padding:20px;
-        color:#ffffff;
+        padding: 20px;
+        color: #ffffff;
     }
 
 </style>

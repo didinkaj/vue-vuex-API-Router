@@ -1,22 +1,21 @@
 <script>
-  import SideBarNav from '@/components/SideBarNav'
-    export default {
-      components: {
-        'side-bar-nav': SideBarNav,
-      },
-      data(){
-        return{
+    import SideBarNav from '@/components/SideBarNav'
 
+    export default {
+        components: {
+            'side-bar-nav': SideBarNav,
+        },
+        data() {
+            return {}
         }
-      }
     }
 </script>
 <template>
     <div class="grid-x grid-margin-x" id="content">
         <div class="medium-9 cell">
-        <slot name="content">
+            <slot name="content">
 
-        </slot>
+            </slot>
         </div>
 
         <div class="medium-3 cell" data-sticky-container>
@@ -33,7 +32,7 @@
 </template>
 <style>
     #content {
-        min-height:500px;
+        min-height: 500px;
     }
 
 </style>
