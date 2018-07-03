@@ -69,7 +69,7 @@
             <div slot="details">
                 Contains all blogs written on daily basis by cytonn software developer interns; the blogs are mainly two..
                 <div class="panel clearfix">
-                    <button @click="showAddBlogForm()" class="primary button">Add Blog Post</button>
+                    <button @click="showAddBlogForm()" class="primary button addblog">Add Blog Post</button>
                 </div>
             </div>
         </page-header>
@@ -93,15 +93,15 @@
 
         <blog-pagination></blog-pagination>
     </div>
-
-
 </template>
-
 
 
 <style>
     .red {
         color: brown;
+    }
+    .addblog{
+        background-color: ;
     }
 
 </style>

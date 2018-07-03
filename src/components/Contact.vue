@@ -17,8 +17,8 @@
         computed: {},
         methods: {}
     }
-
 </script>
+
 <template>
     <div>
         <page-header>
@@ -29,18 +29,13 @@
         <content-area>
             <div slot="content">
                 <h2 class="lead">Feel free to talk to us </h2>
-
             </div>
             <div slot="sidebar">
 
 
             </div>
-
         </content-area>
-
-
     </div>
-
 </template>
 
 

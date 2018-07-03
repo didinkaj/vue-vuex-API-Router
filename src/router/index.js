@@ -7,8 +7,9 @@ import AboutOurMission from '@/components/AboutOurMission'
 import AboutOurVision from '@/components/AboutOurVision'
 import ApiRequest from '@/components/ApiRequest'
 import BlogDetails from '@/components/BlogDetails'
+import KarmaTest from '@/components/KarmaTest'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
     routes: [
@@ -48,6 +49,11 @@ export default new Router({
             path: '/vuex/blog/:id',
             name: 'blogDetails',
             component: BlogDetails
+        },
+        {
+            path: '/karma-test',
+            name: 'KarmaTest',
+            component: KarmaTest
         }
     ]
 })

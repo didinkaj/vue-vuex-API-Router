@@ -23,6 +23,9 @@
                 }
 
             }
+        },
+        watch:{
+
         }
     }
 </script>
@@ -35,7 +38,7 @@
                 <ul class="menu ">
                     <li class="is-active">
                         <router-link :to="{ name: 'blogDetails', params: {id:blog.id}}">
-                            View Blog
+                            Read More
                         </router-link>
                     </li>
                 </ul>

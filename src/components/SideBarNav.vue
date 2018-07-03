@@ -53,7 +53,12 @@
             <div class="card-section">
                 <h4>{{title1}}</h4>
                 <ul>
-                    <li v-for="blog in blogs"><a href="#">{{blog.title}}</a></li>
+                    <li v-for="blog in blogs">
+                        <router-link :to="{ name: 'blogDetails', params: {id:blog.id}}">
+                            {{blog.title}}
+                        </router-link>
+
+                    </li>
 
                     <slot name="recent"></slot>
                 </ul>

@@ -36,6 +36,9 @@
                     <li>
                         <router-link :to="{name:'ApiRequest'}">API</router-link>
                     </li>
+                    <li>
+                        <router-link :to="{name:'KarmaTest'}">Karma</router-link>
+                    </li>
 
                     <li>
                         <slot name="link"></slot>
