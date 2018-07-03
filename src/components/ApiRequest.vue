@@ -38,18 +38,16 @@
     <div>
         <page-header>
             <div slot="title">
-                Jokes of the day
-                <button id="btn" class="" @click="getJokes()">Get Jokes</button>
+                Jokes Data pulled from API
             </div>
         </page-header>
 
         <content-area>
             <div slot="content">
-                <hr/>
-                <ul v-for="joke in jokes">
-                    <li>{{joke.joke}}</li>
+                <div class="callout " v-for="joke in jokes">
+                    <span class="id">{{joke.id}} &nbsp;</span>   <p class="lead">{{joke.joke}}<p/>
 
-                </ul>
+                </div>
             </div>
 
             <div slot="sidebar">
@@ -62,5 +60,9 @@
 
 
 <style>
+    .id{
+        color:blue;
+        float: left;
+    }
 
 </style>

@@ -6,7 +6,6 @@ import Contact from '@/components/Contact'
 import AboutOurMission from '@/components/AboutOurMission'
 import AboutOurVision from '@/components/AboutOurVision'
 import ApiRequest from '@/components/ApiRequest'
-import Vuex from '@/components/Vuex'
 import BlogDetails from '@/components/BlogDetails'
 
 Vue.use(Router)
@@ -44,11 +43,7 @@ export default new Router({
             name: 'ApiRequest',
             component: ApiRequest
         },
-        {
-            path: '/vuex',
-            name: 'Vuex',
-            component: Vuex
-        },
+
         {
             path: '/vuex/blog/:id',
             name: 'blogDetails',

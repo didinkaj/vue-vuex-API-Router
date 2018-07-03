@@ -1,31 +1,37 @@
 <script>
     import {mapState, mapMutations} from 'vuex'
+
     export default {
         props: [
             'blogs'
         ],
         data() {
-            return {
-
-            }
+            return {}
         },
-        computed:{
-
-        },
+        computed: {},
         methods: {
             deleteBlog(blog) {
-               this.$store.commit('DELETE_BLOG', blog)
+                this.$store.commit('DELETE_BLOG', blog)
+            },
+            trimBlog(body) {
+                let limit = 300;
+                if (body.length <= limit) {
+                    return body
+                } else {
+                    let content = body.split(' ').slice(0, limit);
+                    return content = content.join(' ')
+                }
+
             }
         }
     }
 </script>
 <template>
     <div class="medium-9 cell">
-
         <div class="card" v-for="blog in blogs">
             <div class="card-section">
                 <h3>{{blog.title}} <span class="left"><button @click="deleteBlog(blog)">X</button> </span></h3>
-                <p>{{blog.body}}</p>
+                <p>{{trimBlog(blog.body)}}</p>
                 <ul class="menu ">
                     <li class="is-active">
                         <router-link :to="{ name: 'blogDetails', params: {id:blog.id}}">
@@ -33,7 +39,7 @@
                         </router-link>
                     </li>
                 </ul>
-
+                <br/>
                 <div class="callout">
                     <ul class="menu simple">
                         <li>{{blog.date}}</li>
@@ -42,11 +48,8 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </template>
-
 
 
 <style>
@@ -58,7 +61,8 @@
     .left {
         float: right;
     }
-    .link{
-        color:#ffffff;
+
+    .link {
+        color: #ffffff;
     }
 </style>

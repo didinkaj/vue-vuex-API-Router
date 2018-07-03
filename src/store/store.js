@@ -36,7 +36,7 @@ const store = new Vuex.Store({
              state.blogs.unshift(data)
         },
         DELETE_BLOG(state, data){
-            state.blogs.pop(data)
+            state.blogs.splice( state.blogs.indexOf(data), 1 );
         },
         GET_JOKES(state, data) {
 
