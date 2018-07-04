@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios';
 
+import Blogs from './ApiJokes/joke';
+
 Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
@@ -25,41 +27,30 @@ const store = new Vuex.Store({
                 url: '#/about'
             }
         ],
-        jokes: [],
-        loading: false
+
     },
     mutations: {
         updateName(state, name) {
             state.name = name
         },
         ADD_BLOG(state, data){
-             state.blogs.unshift(data)
+            state.blogs.unshift(data)
         },
         DELETE_BLOG(state, data){
             state.blogs.splice( state.blogs.indexOf(data), 1 );
-        },
-        GET_JOKES(state, data) {
-
-            state.loading = true;
-
-            axios.get('http://api.icndb.com/jokes/random/10')
-                .then( ({ data }) => {
-                    state.jokes = data.value;
-
-                }, () => {
-
-                })
         }
+
     },
     getters: {
         blogs: state => state.blogs,
-        jokes: state => state.jokes,
     },
     actions: {
 
     },
     modules: {
-
+        Blogs,
     }
-})
+});
+
+
 export default store
