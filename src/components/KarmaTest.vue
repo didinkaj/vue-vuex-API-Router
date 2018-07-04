@@ -1,20 +1,21 @@
+<template>
+    <div>
+        <p>{{body}}</p>
+    </div>
+</template>
+
 <script>
     export default {
-        name:'KarmaTest',
-        data() {
-            return {
-                dataProp: 'Data Text'
+        props:[
+            'title'
+        ],
+        data(){
+            return{
+                body:'karma test'
             }
         }
     }
 </script>
-
-<template>
-    <p>{{dataProp}}</p>
-</template>
-
-
-
 <style>
 
 </style>

@@ -14,12 +14,12 @@
                 this.$store.commit('DELETE_BLOG', blog)
             },
             trimBlog(body) {
-                let limit = 300;
+                let limit = 40;
                 if (body.length <= limit) {
                     return body
                 } else {
                     let content = body.split(' ').slice(0, limit);
-                    return content = content.join(' ')
+                    return content = content.join(' ') + "..."
                 }
 
             }

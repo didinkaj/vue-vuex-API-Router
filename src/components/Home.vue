@@ -5,6 +5,7 @@
     import PageHeader from '@/components/PageHeader'
     import ContentArea from '@/components/ContentArea'
     import AddBlogForm from '@/components/AddBlogForm'
+    import KarmaTest from '@/components/KarmaTest'
     import {mapState} from 'vuex'
 
     export default {
@@ -15,7 +16,8 @@
             'blog-pagination': BlogPagination,
             'page-header': PageHeader,
             'content-area': ContentArea,
-            'add-blog': AddBlogForm
+            'add-blog': AddBlogForm,
+            'karma-test':KarmaTest
         },
         data() {
 
@@ -23,6 +25,7 @@
                 isActiveBlogs: true,
                 isActiveForm: false,
                 msgReversal: '',
+                title:' Cytonn Technology  Blog Vuex'
 
             }
 
@@ -88,6 +91,7 @@
                 <h5>Computed Properties</h5>
                 <p class="red">{{Reversalmsg}}</p>
                 <input type="text" v-model="msgReversal"/>
+                <karma-test :title="title"></karma-test>
             </div>
         </content-area>
 
