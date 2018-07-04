@@ -14,9 +14,15 @@ describe('KarmaTest.vue', () => {
             expect(comp.$el.textContent)
                 .to.equal('New Text');
             done();
-        });
-    });
+        })
+    })
 
+    it('displays fruits from the list', () => {
+        const Constructor = Vue.extend(List);
+        const ListComponent = new Constructor().$mount();
+
+        expect(ListComponent.$el.textContent).to.contain('bananas');
+    })
 
 
 

@@ -1,6 +1,9 @@
 <template>
     <div>
-        <p>{{body}}</p>
+        
+        <ul v-for="fruit in fruits">
+            <li>{{fruit}}</li>
+        </ul>
     </div>
 </template>
 
@@ -11,7 +14,13 @@
         ],
         data(){
             return{
-                body:'karma test'
+                body:'karma test',
+                fruits:[
+                    'bananas',
+                    'oranges',
+                    'pinaples',
+                    'apples'
+                ]
             }
         }
     }
